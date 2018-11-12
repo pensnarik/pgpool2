@@ -2237,13 +2237,6 @@ retry_startup:
 
 			found = 0;
 		}
-		else if (memcmp(sp->startup_packet, MASTER_CONNECTION(backend)->sp->startup_packet, sp->len) != 0)
-		{
-			ereport(DEBUG1,
-					(errmsg("selecting backend connection"),
-					 errdetail("connection exists but startup packet contents is not identical")));
-			found = 0;
-		}
 
 		if (found == 0)
 		{
